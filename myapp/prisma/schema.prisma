@@ -8,4 +8,10 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
+
+//reason for shadow database - heroku's free postgres - the user heroku creates for that database does not have permission to create
+// another database on that postgres instance, prisma needs the ability to create a db on the fly when it runs a migration
+//but because heroku doesn't allow that, prisma fails, so as a workaround prisma allows us to have 1 db where we store the data
+//and another one for the shadow
