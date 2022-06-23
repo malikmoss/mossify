@@ -22,7 +22,7 @@ export const validateRoute = (handler) => {
         }
       } catch (error) {
         res.status(401);
-        res.json({ error: "Not authorized" });
+        res.json({ error: "Not authorized!" });
         return;
       }
       //if id is found, call the handler function
@@ -30,6 +30,6 @@ export const validateRoute = (handler) => {
     }
     //if you don't have a token, send back an error
     res.status(401);
-    res.json({ error: "Not authorized" });
+    res.json({ error: "Not authorized!!" });
   };
 };
