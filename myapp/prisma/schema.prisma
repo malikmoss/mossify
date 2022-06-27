@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,38 +13,39 @@ datasource db {
 
 model User {
   id        Int        @id @default(autoincrement())
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
   email     String     @unique
   password  String
-  Playlist  Playlist[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  playlists Playlist[]
 }
 
 model Song {
-  id         Int        @id @default(autoincrement())
-  createdAt  DateTime   @default(now())
-  updatedAt  DateTime   @updatedAt
-  name       String
-  artistId   Int
-  playlistId Int
-  artist     Artist     @relation(fields: [artistId], references: [id])
-  Playlist   Playlist[]
+  id        Int        @id @default(autoincrement())
+  name      String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  artist    Artist     @relation(fields: [artistId], references: [id])
+  artistId  Int
+  playlists Playlist[]
+  duration  Int
+  url       String
 }
 
 model Artist {
   id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
   name      String   @unique
   songs     Song[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Playlist {
   id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime
   name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  songs     Song[]
+  user      User     @relation(fields: [userId], references: [id])
   userId    Int
-  User      User     @relation(fields: [userId], references: [id])
-  Song      Song[]
 }
