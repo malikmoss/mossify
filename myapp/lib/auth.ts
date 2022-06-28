@@ -5,7 +5,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 //wraps our handler,
 export const validateRoute = (handler) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    const token = req.cookies.TRAX_ACCESS_TOKEN;
+    const token = req.cookies.MOSSIFY_ACCESS_TOKEN;
 
     //checking token from the cookie
     if (token) {
