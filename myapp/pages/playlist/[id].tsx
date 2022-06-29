@@ -1,6 +1,7 @@
 import prisma from "../../lib/prisma";
 import { validateToken } from "../../lib/auth";
 import GradientLayout from "../../components/gradientLayout";
+import SongTable from "../../components/songsTable";
 
 const getBGColor = (id) => {
   const colors = [
@@ -27,7 +28,9 @@ const Playlist = ({ playlist }) => {
       subtitle="playlist"
       description={`${playlist.songs.length} songs`}
       image={`https://picsum.photos/400?random=${playlist.id}`}
-    ></GradientLayout>
+    >
+      <SongTable songs={playlist.songs} />
+    </GradientLayout>
   );
 };
 
