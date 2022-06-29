@@ -4,7 +4,7 @@ import prisma from "./prisma";
 
 export const validateRoute = (handler) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    const token = req.cookies.TRAX_ACCESS_TOKEN;
+    const token = req.cookies.MOSSIFY_ACCESS_TOKEN;
 
     if (token) {
       let user;
@@ -20,7 +20,7 @@ export const validateRoute = (handler) => {
         }
       } catch (error) {
         res.status(401);
-        res.json({ error: "Not Authorizied" });
+        res.json({ error: "Not Authorized!" });
         return;
       }
 
@@ -28,7 +28,7 @@ export const validateRoute = (handler) => {
     }
 
     res.status(401);
-    res.json({ error: "Not Authorizied" });
+    res.json({ error: "Not Authorized" });
   };
 };
 
