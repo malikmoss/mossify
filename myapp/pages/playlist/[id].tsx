@@ -1,8 +1,34 @@
 import prisma from "../../lib/prisma";
 import { validateToken } from "../../lib/auth";
+import GradientLayout from "../../components/gradientLayout";
+
+const getBGColor = (id) => {
+  const colors = [
+    "red",
+    "green",
+    "blue",
+    "orange",
+    "purple",
+    "gray",
+    "teal",
+    "yellow",
+  ];
+  return colors[id - 1] || colors[Math.floor(Math.random() * colors.length)];
+};
 
 const Playlist = ({ playlist }) => {
-  return <div>{playlist.name}</div>;
+  const color = getBGColor(playlist.id);
+
+  return (
+    <GradientLayout
+      color={color}
+      roundImage={false}
+      title={playlist.name}
+      subtitle="playlist"
+      description={`${playlist.songs.length} songs`}
+      image={`https://picsum.photos/400?random=${playlist.id}`}
+    ></GradientLayout>
+  );
 };
 
 export const getServerSideProps = async ({ query, req }) => {
