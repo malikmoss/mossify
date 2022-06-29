@@ -7,7 +7,7 @@ export default function middleware(req) {
     const token = req.cookies.MOSSIFY_ACCESS_TOKEN;
 
     if (!token) {
-      return NextResponse.redirect(new URL("/signin", req.url));
+      return NextResponse.redirect("/signin");
     }
   }
 }
