@@ -9,6 +9,7 @@ export default function middleware(req) {
     if (!token) {
       const { origin } = req.nextUrl;
       return NextResponse.redirect(`${origin}/signin`);
+      // return NextResponse.redirect("https://localhost:3000/signin");
     }
   }
 }
