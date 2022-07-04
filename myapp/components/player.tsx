@@ -179,7 +179,7 @@ const Player = ({ songs, activeSong }) => {
             </RangeSlider>
           </Box>
           <Box width="10%" textAlign="right">
-            <Text fontSize="xs">321</Text>
+            <Text fontSize="xs">{formatTime(duration)}</Text>
           </Box>
         </Flex>
       </Box>
