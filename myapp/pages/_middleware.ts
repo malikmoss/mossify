@@ -7,9 +7,9 @@ export default function middleware(req) {
     const token = req.cookies.MOSSIFY_ACCESS_TOKEN;
 
     if (!token) {
-      const { origin } = req.nextUrl;
-      return NextResponse.redirect(`${origin}/signin`);
-      // return NextResponse.redirect("https://localhost:3000/signin");
+      // const { origin } = req.nextUrl;
+      // return NextResponse.redirect(`${origin}/signin`);
+      return NextResponse.redirect("https://localhost:3000/signin");
     }
   }
 }
