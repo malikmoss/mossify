@@ -7,7 +7,7 @@ A replica of the Spotify platform. Built with a modern stack of tools: React, Ne
 - Shuffle and more!
 
 ## Demo
-login with the demo user credentials: email: <b>user@test.com</b> password: <b>passowrd</b>
+login with the demo user credentials: email: <b>user@test.com</b> password: <b>password</b>
 <img width="1510" alt="Screen Shot 2022-07-04 at 12 21 39 AM" src="https://user-images.githubusercontent.com/72308073/177086656-31c03604-e977-45b6-a44c-5565c1bfdc3b.png">
 
 Once you are logged in, you can explore the playlists listed in the sidebar and enjoy the music!
